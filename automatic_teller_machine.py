@@ -46,7 +46,7 @@ while selection in Command:
             print('{:^40}'.format(a))
             time.sleep(3)
             os.system('cls' if os.name == 'nt' else 'clear')
-            continue
+            
         if selection in Withdrow:
             if balacne > 0 :
                 amount = float(input('Enter the transaction amount:'))
