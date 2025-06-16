@@ -13,7 +13,6 @@ pprint(data)
 for key,value in data.items():
     if value < 0:
         value = (value*1.1/12) + value
-        print(value)
         data[key] = value
     if value == 0:
         data[key] = value
@@ -27,9 +26,12 @@ for key,value in data.items():
         value = (value*1.05/12) + value
         data[key] = value
 
-
-data["Account"] = ["Balance"]
-pprint(data)
 f = open("updated_balances_LH.csv", "w")
-f.write(str(data))
+f.write("Account,Balance")
+f.write("\n")
+for key,value in data.items():
+    f.write(key)
+    f.write(",")
+    f.write(str(value))
+    f.write("\n")
 f.close
