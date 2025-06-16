@@ -2,7 +2,6 @@
 Lichao_Huang
 06/15/2025
 """
-
 from pprint import pprint
 data = {}
 with open("account_balances.txt", "r") as input_file:
@@ -31,3 +30,6 @@ for key,value in data.items():
 
 data["Account"] = ["Balance"]
 pprint(data)
+f = open("updated_balances_LH.csv", "w")
+f.write(str(data))
+f.close
