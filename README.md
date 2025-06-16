@@ -1,5 +1,6 @@
 # Assignment_3
-ATM Simulator
+ATM_Simulator
+Interest_update
 
 ## Author
 Lichao_Huang
