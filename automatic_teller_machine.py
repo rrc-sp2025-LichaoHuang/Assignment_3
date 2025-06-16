@@ -3,12 +3,14 @@ Lichao_Huang
 06/15/2025
 """
 import random
+import os
+import time
 Command = ('D','d','W','w','Q','q')
 Deposit = ('D','d')
 Withdrow = ('W','w')
 Quit = ('Q','q')
 balacne = int(random.randint(-1000,10000))
-
+selection = "D"
 
 a = "****************************************"
 b = "PIXELL RIVER FINANCIAL"
@@ -21,44 +23,63 @@ h = "Enter your selection:"
 i = "INVALID SELECTION"
 j = "INSUFFICIENT FUNDS"
 
-print('{:^40}'.format(a))
-print('{:^40}'.format(b))
-print('{:^40}'.format(c))
-print()
-print('{:^40}'.format(f'{d}{balacne:,.2f}'))
-print()
-print('{:^40}'.format(e))
-print('{:^40}'.format(f))
-print('{:^40}'.format(g))
-print('{:^40}'.format(a))
-
-selection = input(h)
 while selection in Command:
-    if selection in Deposit:
-        amount = float(input('Enter the transaction amount:'))
-        balacne = balacne + amount
-        print()
-        print('{:^40}'.format(a))
-        print(f'{d}{balacne:,.2f}')
-        print('{:^40}'.format(a))
-    if selection in Withdrow:
-        if balacne > 0 :
+    print('{:^40}'.format(a))
+    print('{:^40}'.format(b))
+    print('{:^40}'.format(c))
+    print()
+    print('{:^40}'.format(f'{d}{balacne:,.2f}'))
+    print()
+    print('{:^40}'.format(e))
+    print('{:^40}'.format(f))
+    print('{:^40}'.format(g))
+    print('{:^40}'.format(a))
+    newselection = input(h)
+    if newselection in Command:
+        selection = newselection
+        if selection in Deposit:
             amount = float(input('Enter the transaction amount:'))
-            if amount < balacne:
-                balacne = balacne - amount
-                print()
-                print('{:^40}'.format(a))
-                print(f'{d}{balacne:,.2f}')
-                print('{:^40}'.format(a))
+            balacne = balacne + amount
+            print()
+            print('{:^40}'.format(a))
+            print(f'{d}{balacne:,.2f}')
+            print('{:^40}'.format(a))
+            time.sleep(3)
+            os.system('cls' if os.name == 'nt' else 'clear')
+            continue
+        if selection in Withdrow:
+            if balacne > 0 :
+                amount = float(input('Enter the transaction amount:'))
+                if amount < balacne:
+                    balacne = balacne - amount
+                    print()
+                    print('{:^40}'.format(a))
+                    print(f'{d}{balacne:,.2f}')
+                    print('{:^40}'.format(a))
+                    time.sleep(3)
+                    os.system('cls' if os.name == 'nt' else 'clear')
+                    continue
+                else:
+                    print()
+                    print('{:^40}'.format(a))
+                    print('{:^40}'.format(j))
+                    print('{:^40}'.format(a))
+                    time.sleep(3)
+                    os.system('cls' if os.name == 'nt' else 'clear')
+                    continue
             else:
                 print()
                 print('{:^40}'.format(a))
                 print('{:^40}'.format(j))
                 print('{:^40}'.format(a))
-        else:
-            print()
-            print('{:^40}'.format(a))
-            print('{:^40}'.format(j))
-            print('{:^40}'.format(a))
-    if selection in Quit:
-        break
+                time.sleep(3)
+                os.system('cls' if os.name == 'nt' else 'clear')
+                continue
+        if selection in Quit:
+            os.system('cls' if os.name == 'nt' else 'clear')
+            break
+    else:
+        print()
+        print('{:^40}'.format(a))
+        print('{:^40}'.format(i))
+        print('{:^40}'.format(a))
