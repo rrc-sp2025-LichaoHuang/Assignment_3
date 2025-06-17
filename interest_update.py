@@ -3,12 +3,13 @@ Lichao_Huang
 06/15/2025
 """
 from pprint import pprint
+import csv
 data = {}
 with open("account_balances.txt", "r") as input_file:
     for line in input_file:
         key, value = line.strip().split('|')
         data[key] = float(value)
-pprint(data)
+#pprint(data)
 
 for key,value in data.items():
     if value < 0:
@@ -34,4 +35,11 @@ for key,value in data.items():
     f.write(",")
     f.write(str(value))
     f.write("\n")
+f.close
+
+f = open('updated_balances_LH.csv', 'r')
+reader = csv.DictReader(f)
+print(reader)
+for line in reader:
+    print(line)
 f.close

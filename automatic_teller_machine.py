@@ -79,3 +79,4 @@ while selection in Command:
         print('{:^40}'.format(a))
         print('{:^40}'.format(i))
         print('{:^40}'.format(a))
+
